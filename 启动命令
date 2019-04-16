@@ -1,0 +1,7 @@
+source Tools/setup_gazebo.bash $(pwd) $(pwd)/build/px4_sitl_default
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd):$(pwd)/Tools/sitl_gazebo
+ export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:$HOME/Firmware/Tools/sitl_gazebo/build
+export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:$HOME/Firmware/Tools/sitl_gazebo/models
+export GAZEBO_MODEL_DATABASE_URI=""
+ roslaunch px4 multi_uav_mavros_sitl.launch
+
