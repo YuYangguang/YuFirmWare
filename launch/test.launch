@@ -40,6 +40,13 @@
             <arg name="mavlink_udp_port" value="14560"/>
             <arg name="ID" value="$(arg ID)"/>
         </include>
+        <!-- MAVROS -->
+        <include file="$(find mavros)/launch/px4.launch">
+            <arg name="fcu_url" value="$(arg fcu_url)"/>
+            <arg name="gcs_url" value=""/>
+            <arg name="tgt_system" value="$(arg ID)"/>
+            <arg name="tgt_component" value="1"/>
+        </include>
 
     </group>
 
