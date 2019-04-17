@@ -64,12 +64,12 @@ add_custom_command(OUTPUT ${px4_git_ver_header}
 set_source_files_properties(${px4_git_ver_header} PROPERTIES GENERATED TRUE)
 add_custom_target(ver_gen ALL DEPENDS ${px4_git_ver_header})
 
-px4_add_module(
-	MODULE lib__version
-	COMPILE_FLAGS
+ px4_add_module(
+ 	MODULE lib__version
+ 	COMPILE_FLAGS
 	SRCS
-		version.c
-	DEPENDS
+ 		version.c
+ 	DEPENDS
 		ver_gen
 		platforms__common
 	)

@@ -26,20 +26,16 @@ except:
 git_version_short = git_version[0:16]
 
 if (os.path.exists('platforms/nuttx/NuttX/nuttx')):
-	nuttx_git_tag = subprocess.check_output('git describe --always --tags --match nuttx-*  --dirty'.split(),
-		                          cwd='platforms/nuttx/NuttX/nuttx', stderr=subprocess.STDOUT).decode('utf-8').strip().replace("nuttx-","v")
-	nuttx_git_tag = re.sub('-.*','.0',nuttx_git_tag)
-	nuttx_git_version = subprocess.check_output('git rev-parse --verify HEAD'.split(),
-		                              cwd='platforms/nuttx/NuttX/nuttx', stderr=subprocess.STDOUT).decode('utf-8').strip()
-	nuttx_git_version_short = nuttx_git_version[0:16]
+	nuttx_git_version = "0000000"
+	nuttx_git_version_short = "0000000"
+	nuttx_git_tag = "v0.0.0"
 else:
 	nuttx_git_version = "0000000"
 	nuttx_git_version_short = "0000000"
 	nuttx_git_tag = "v0.0.0"
 
-mavlink_git_version = subprocess.check_output('git rev-parse --verify HEAD'.split(),
-                                      cwd='mavlink/include/mavlink/v2.0', stderr=subprocess.STDOUT).decode('utf-8').strip()
-mavlink_git_version_short = mavlink_git_version[0:16]
+mavlink_git_version = "0000000"
+mavlink_git_version_short = "0000000"
 
 # Generate the header file content
 header = """
